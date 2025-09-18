@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  .container
+    h1 Suppliers
+    a.new-link(href="/suppliers/new") New Supplier
+    table
+      thead
+        tr
+          th Name
+          th Address
+          th Phone
+          th Actions
+      tbody
+        each supplier in suppliers
+          tr
+            td= supplier.name
+            td= supplier.address
+            td= supplier.phone
+            td
+              a(href="/suppliers/#{supplier._id}/edit") Edit
+              form(action="/suppliers/#{supplier._id}/delete", method="post", style="display:inline")
+                button(type="submit") Delete

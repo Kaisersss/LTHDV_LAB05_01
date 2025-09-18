@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  .container
+    h1 Products
+    a.new-link(href="/products/new") New Product
+    table
+      thead
+        tr
+          th Name
+          th Address
+          th Phone
+          th Supplier
+          th Actions
+      tbody
+        each product in products
+          tr
+            td= product.name
+            td= product.address
+            td= product.phone
+            td= product.supplierId ? product.supplierId.name : 'N/A'
+            td
+              a(href="/products/#{product._id}/edit") Edit
+              form(action="/products/#{product._id}/delete", method="post", style="display:inline")
+                button(type="submit") Delete
