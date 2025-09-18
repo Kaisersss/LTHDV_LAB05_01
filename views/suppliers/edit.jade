@@ -1,15 +1,21 @@
 extends ../layout
 
 block content
-  h1 Edit Supplier
-  form(action="/suppliers/#{supplier._id}", method="post")
-    div
-      label Name:
-      input(type="text", name="name", value=supplier.name, required)
-    div
-      label Address:
-      input(type="text", name="address", value=supplier.address, required)
-    div
-      label Phone:
-      input(type="text", name="phone", value=supplier.phone, required)
-    button(type="submit") Update
+  .container
+    nav
+      ul
+        li: a(href='/') Home
+        li: a(href='/suppliers') Suppliers
+        li: a(href='/products') Products
+    h1 Edit Supplier
+    form(action="/suppliers/#{supplier._id}", method="post")
+      div
+        label Name:
+        input(type="text", name="name", value=supplier.name, required)
+      div
+        label Address:
+        input(type="text", name="address", value=supplier.address, required)
+      div
+        label Phone:
+        input(type="text", name="phone", value=supplier.phone, required)
+      button(type="submit") Update

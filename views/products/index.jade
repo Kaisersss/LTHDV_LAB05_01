@@ -2,6 +2,11 @@ extends ../layout
 
 block content
   .container
+    nav
+      ul
+        li: a(href='/') Home
+        li: a(href='/suppliers') Suppliers
+        li: a(href='/products') Products
     h1 Products
     a.new-link(href="/products/new") New Product
     table

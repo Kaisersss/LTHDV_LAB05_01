@@ -1,23 +1,29 @@
 extends ../layout
 
 block content
-  h1 Edit Product
-  form(action=`/products/${product._id}`, method="post")
-    div
-      label Name:
-      input(type="text", name="name", value=product.name, required)
-    div
-      label Address:
-      input(type="text", name="address", value=product.address, required)
-    div
-      label Phone:
-      input(type="text", name="phone", value=product.phone, required)
-    div
-      label Supplier:
-      select(name="supplierId", required)
-        each supplier in suppliers
-          if supplier._id.toString() === product.supplierId.toString()
-            option(value=supplier._id, selected)= supplier.name
-          else
-            option(value=supplier._id)= supplier.name
-    button(type="submit") Update
+  .container
+    nav
+      ul
+        li: a(href='/') Home
+        li: a(href='/suppliers') Suppliers
+        li: a(href='/products') Products
+    h1 Edit Product
+    form(action=`/products/${product._id}`, method="post")
+      div
+        label Name:
+        input(type="text", name="name", value=product.name, required)
+      div
+        label Address:
+        input(type="text", name="address", value=product.address, required)
+      div
+        label Phone:
+        input(type="text", name="phone", value=product.phone, required)
+      div
+        label Supplier:
+        select(name="supplierId", required)
+          each supplier in suppliers
+            if supplier._id.toString() === product.supplierId.toString()
+              option(value=supplier._id, selected)= supplier.name
+            else
+              option(value=supplier._id)= supplier.name
+      button(type="submit") Update
